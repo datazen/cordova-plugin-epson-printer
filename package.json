@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-epson-printer",
+  "version": "0.0.1",
+  "description": "Cordova plugin for Epson receipt printers.",
+  "cordova": {
+    "id": "cordova-plugin-epson-printer",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datazen/cordova-plugin-epson-printer.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Scott Logsdon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datazen/cordova-plugin-epson-printer/issues"
+  },
+  "homepage": "https://github.com/datazen/cordova-plugin-epson-printer#readme"
+}
