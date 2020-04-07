@@ -1,2 +1,48 @@
-<?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-epson-printer" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>epsonprint</name><js-module name="epsonprint" src="www/epsonprint.js"><clobbers target="cordova.plugins.epsonprint" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="epsonprint"><param name="android-package" value="cordova-plugin-epson-printer.epsonprint" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml" /><source-file src="src/android/epsonprint.java" target-dir="src/cordova-plugin-epson-printer/epsonprint" /></platform><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="epsonprint"><param name="ios-package" value="epsonprint" /></feature></config-file><source-file src="src/ios/epsonprint.m" /></platform></plugin>
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-epson-printer" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>EpsonPrint</name>
+	<description>Plugin for Epson receipt printers</description>
+	<author>Scott Logsdon</author>
+	<keywords>print,epson,epos,epson printer</keywords>
+	<license>MIT</license>
+	<engines>
+    	<engine name="cordova" version=">=3.4.0"/>
+  	</engines>
+	<js-module name="EpsonPrint" src="www/EpsonPrint.js">
+		<clobbers target="epsonprint" />
+	</js-module>
+	<platform name="android">
+		<source-file src="src/android/EpsonPrint.java" target-dir="src/epsonprint/cordova" />
+		<!-- Using Epson_Android_SDK_V2_14_0  -->
+		<source-file src="src/android/lib/ePOS2.jar" target-dir="libs" />
+		<source-file src="src/android/lib/ePOSEasySelect.jar" target-dir="libs" />
+		<config-file target="res/xml/config.xml" parent="/*">
+		<feature name="EpsonPrint">
+			<param name="android-package" value="epsonprint.cordova.EpsonPrint" />
+		</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*" />
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+		<uses-permission android:name="android.permission.BLUETOOTH" />
+		</config-file>
+  	</platform>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="EpsonPrint">
+				<param name="ios-package" value="EpsonPrint" />
+			</feature>
+		</config-file>
+		<config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+	    <array>
+        <string>vi.ser.epsonprint</string>
+	    </array>
+		</config-file>
+		<config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+      <string>To connect to Epson printer devices</string>
+	  </config-file>
+		<!-- <header-file src="src/ios/Communication.h" />
+		<source-file src="src/ios/Communication.m" />
+		<header-file src="src/ios/EpsonPrint.h" /> -->
+		<source-file src="src/ios/EpsonPrint.m" />
+	</platform>
+
